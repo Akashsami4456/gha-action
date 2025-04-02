@@ -15,6 +15,13 @@ import (
 	"github.com/google/uuid"
 )
 
+type ErrorResponse struct {
+	Code    int    `json:"code"`
+	Message string `json:"message"`
+	Details []any  `json:"details"`
+}
+
+
 func (config *Config) Run(_ context.Context) (err error) {
 	validationError := setEnvVars(config)
 	if validationError != nil {
