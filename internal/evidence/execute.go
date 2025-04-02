@@ -115,6 +115,8 @@ func prepareCloudEventData(cfg *Config) Output {
 		EvidenceInfo: *evidenceInfo,
 		ProviderInfo: *providerInfo,
 	}
+	fmt.Println("Output set data")
+	fmt.Println(PrettyPrint(output))
 	return output
 }
 
@@ -127,6 +129,8 @@ func prepareCloudEvent(config *Config, output Output) (cloudevents.Event, error)
 	cloudEvent.SetSpecVersion(SpecVersion)
 	cloudEvent.SetTime(time.Now())
 	err := cloudEvent.SetData(ContentTypeJson, output)
+	fmt.Println("CloudEvent set data")
+	fmt.Println(PrettyPrint(cloudEvent))
 	if err != nil {
 		return cloudevents.Event{}, fmt.Errorf("failed to set data: %v", err)
 	}
@@ -162,11 +166,19 @@ func sendCloudEvent(cloudEvent cloudevents.Event, config *Config) error {
 
 	if err != nil {
 		return fmt.Errorf("error sending CloudEvent to platform %s", err)
-
 	}
 	if resp.StatusCode != http.StatusOK {
-		return fmt.Errorf("error sending CloudEvent to platform %s", resp.Status)
-	}
+		body, err := io.ReadAll(resp.Body)
+		if err != nil {
+			fmt.Println("Error reading response body:", err)
+		}
+		var errorResponse ErrorResponse
+		if err := json.Unmarshal(body, &errorResponse); err != nil {
+			fmt.Println("Error unmarshaling response body:", err)
+		}
+		return fmt.Errorf("error sending CloudEvent to platform: %s", errorResponse.Message)
+	}	
+	
 	defer func(Body io.ReadCloser) {
 		err := Body.Close()
 		if err != nil {
