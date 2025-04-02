@@ -1,0 +1,25 @@
+name: 'Publish Evidence Action'
+description: "publishing step level evidence to CBP"
+
+inputs:
+  cloudbees-url:
+    description: 'The CloudBees platform URL.'
+    required: true
+  cloudbees-pat:
+    description: 'The CloudBees platform personal access token.'
+    required: true
+  content:
+    description: 'The content to be published as evidence.'
+    required: true
+  format:
+    description: 'The format of the evidence content.'
+    required: false
+
+runs:
+  using: "docker"
+  image: "docker://ghcr.io/sAkashsami4456/gha-action/my-app:latest" 
+  env:
+    CLOUDBEES_API_URL: ${{ inputs.cloudbees-url }}
+    CLOUDBEES_API_TOKEN: ${{ inputs.cloudbees-pat }}
+    CONTENT: ${{ inputs.content }}
+    FORMAT: ${{ inputs.format }}
