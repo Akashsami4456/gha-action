@@ -17,7 +17,7 @@ inputs:
 
 runs:
   using: "docker"
-  image: "docker://ghcr.io/akashsami4456/gha-action/my-app:latest" 
+  image: "docker://ghcr.io/Akashsami4456/gha-action/my-app:latest" 
   env:
     CLOUDBEES_API_URL: ${{ inputs.cloudbees-url }}
     CLOUDBEES_API_TOKEN: ${{ inputs.cloudbees-pat }}
