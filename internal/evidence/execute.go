@@ -11,7 +11,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/calculi-corp/log"
 	cloudevents "github.com/cloudevents/sdk-go/v2"
 	"github.com/google/uuid"
 )
@@ -95,7 +94,7 @@ func setEnvVars(cfg *Config) error {
 		return fmt.Errorf(Content + " is not provided in the environment")
 	}
 	cfg.Content = content
-	log.Infof("Content from GHA workflow: %s", content)
+	fmt.Println("Content: ", cfg.Content)
 	return nil
 }
 

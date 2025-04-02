@@ -6,7 +6,8 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/calculi-corp/gha-publish-evidence-item/internal/evidence"
+	"gha-publish-evidence/internal/evidence"
+
 	"github.com/spf13/cobra"
 )
 

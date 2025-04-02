@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/calculi-corp/gha-publish-evidence-item/cmd"
+	"gha-publish-evidence/cmd"
 )
 
 func main() {
