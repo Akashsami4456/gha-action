@@ -1,6 +1,6 @@
 package evidence
 
-type EvidenceInfo struct {
+type PublishEvidence struct {
 	Content string `json:"content,omitempty"`
 	Format  string `json:"format,omitempty"`
 }
@@ -14,6 +14,6 @@ type ProviderInfo struct {
 }
 
 type Output struct {
-	EvidenceInfo EvidenceInfo `json:"evidence_info,omitempty"`
-	ProviderInfo ProviderInfo `json:"provider_info,omitempty"`
+	PublishEvidence PublishEvidence `json:"publish_evidence,omitempty"`
+	ProviderInfo    ProviderInfo    `json:"provider_info,omitempty"`
 }

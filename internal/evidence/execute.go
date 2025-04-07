@@ -21,7 +21,6 @@ type ErrorResponse struct {
 	Details []any  `json:"details"`
 }
 
-
 func (config *Config) Run(_ context.Context) (err error) {
 	validationError := setEnvVars(config)
 	if validationError != nil {
@@ -107,7 +106,7 @@ func setEnvVars(cfg *Config) error {
 
 func prepareCloudEventData(cfg *Config) Output {
 
-	evidenceInfo := &EvidenceInfo{
+	evidenceInfo := &PublishEvidence{
 		Content: cfg.Content,
 		Format:  cfg.Format,
 	}
@@ -119,8 +118,8 @@ func prepareCloudEventData(cfg *Config) Output {
 		Provider:   GithubProvider,
 	}
 	output := Output{
-		EvidenceInfo: *evidenceInfo,
-		ProviderInfo: *providerInfo,
+		PublishEvidence: *evidenceInfo,
+		ProviderInfo:    *providerInfo,
 	}
 	fmt.Println("Output set data")
 	fmt.Println(PrettyPrint(output))
@@ -184,8 +183,8 @@ func sendCloudEvent(cloudEvent cloudevents.Event, config *Config) error {
 			fmt.Println("Error unmarshaling response body:", err)
 		}
 		return fmt.Errorf("error sending CloudEvent to platform: %s", errorResponse.Message)
-	}	
-	
+	}
+
 	defer func(Body io.ReadCloser) {
 		err := Body.Close()
 		if err != nil {
