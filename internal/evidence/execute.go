@@ -118,8 +118,8 @@ func prepareCloudEventData(cfg *Config) Output {
 		Provider:   GithubProvider,
 	}
 	output := Output{
-		PublishEvidence: *evidenceInfo,
 		ProviderInfo:    *providerInfo,
+		PublishEvidence: *evidenceInfo,
 	}
 	fmt.Println("Output set data")
 	fmt.Println(PrettyPrint(output))

@@ -14,6 +14,6 @@ type ProviderInfo struct {
 }
 
 type Output struct {
-	PublishEvidence PublishEvidence `json:"publish_evidence,omitempty"`
 	ProviderInfo    ProviderInfo    `json:"provider_info,omitempty"`
+	PublishEvidence PublishEvidence `json:"publish_evidence,omitempty"`
 }
