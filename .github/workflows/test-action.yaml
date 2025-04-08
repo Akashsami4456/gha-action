@@ -20,6 +20,6 @@ jobs:
         uses: akashsami4456/gha-action@main
         id: go-action
         with :
-          cloudbees-url: "https://api.saas-prod.beescloud.com/"
+          cloudbees-url: "https://api.saas-qa.beescloud.com/"
           cloudbees-pat: ${{ secrets.QA_PAT }}
           content: "Name: My sample Evidence Ak, Age:06.10.1999"
