@@ -22,4 +22,4 @@ jobs:
         with :
           cloudbees-url: "https://api.saas-qa.beescloud.com/"
           cloudbees-pat: ${{ secrets.QA_PAT }}
-          # content: "Name: My sample Evidence Ak, Age:06.10.1999"
+          content: "Name: My sample Evidence Ak, Age:06.10.1999"
