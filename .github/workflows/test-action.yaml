@@ -25,3 +25,4 @@ jobs:
           cloudbees-pat: ${{ secrets.CBP_PAT }}
           #component-id: "0a93f2dc-ae5c-4246-ab82-3db8c8328284"
           content: "Name: My sample Evidence Ak, Age:06.10.1999"
+          format: "MARKDOWN"
