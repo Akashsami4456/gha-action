@@ -22,7 +22,8 @@ jobs:
         run: echo "MY_PAT=${{ secrets.MY_PAT }}"
 
       - name: Publish Evidence Action
-        uses: cloudbees-gha-cbp/publish-evidence-item@test
+        # uses: cloudbees-gha-cbp/publish-evidence-item@test
+        uses: akashsami4456/gha-action@main
         id: go-action
         with :
           # cloudbees-url: "https://api.saas-preprod.beescloud.com/"
