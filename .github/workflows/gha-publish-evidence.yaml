@@ -1,4 +1,4 @@
-name: TEST
+name: Publish evidence item
 on:
   push:
    branches: [ main ]
@@ -21,10 +21,10 @@ jobs:
       - name: Set up environment variable for PAT
         run: echo "MY_PAT=${{ secrets.MY_PAT }}"
 
-      - name: Run My Custom Go Action
+      - name: Publish Evidence Action
         uses: cloudbees-gha-cbp/publish-evidence-item@test
         id: go-action
         with :
-          cloudbees-url: "https://api.saas-preprod.beescloud.com/"
-          cloudbees-pat: ${{ secrets.CBP_PAT }}
-          content: "Demo Preprod"
+          # cloudbees-url: "https://api.saas-preprod.beescloud.com/"
+          cloudbees-pat: ${{ secrets.PROD_PAT }}
+          content: "Test Prod"
