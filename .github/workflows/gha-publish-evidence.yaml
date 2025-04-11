@@ -10,9 +10,6 @@ jobs:
       - name : Step-1
         run: echo "hello from step 1"
         
-      - name: Sleep for 30 seconds
-        run: sleep 30s
-        shell: bash
       - uses: actions/checkout@v3
 
       - name: Run a one-line script
@@ -27,5 +24,6 @@ jobs:
         id: go-action
         with :
           # cloudbees-url: "https://api.saas-preprod.beescloud.com/"
+          cloudbees-url: "https://api.cloudbees.io"
           cloudbees-pat: ${{ secrets.PROD_PAT }}
           content: "Test Prod"
