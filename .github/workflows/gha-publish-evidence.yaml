@@ -1,0 +1,30 @@
+name: TEST
+on:
+  push:
+   branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name : Step-1
+        run: echo "hello from step 1"
+        
+      - name: Sleep for 30 seconds
+        run: sleep 30s
+        shell: bash
+      - uses: actions/checkout@v3
+
+      - name: Run a one-line script
+        run: echo "Hello, world!"
+
+      - name: Set up environment variable for PAT
+        run: echo "MY_PAT=${{ secrets.MY_PAT }}"
+
+      - name: Run My Custom Go Action
+        uses: cloudbees-gha-cbp/publish-evidence-item@test
+        id: go-action
+        with :
+          cloudbees-url: "https://api.saas-preprod.beescloud.com/"
+          cloudbees-pat: ${{ secrets.CBP_PAT }}
+          content: "Demo Preprod"
