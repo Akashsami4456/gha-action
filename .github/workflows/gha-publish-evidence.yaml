@@ -15,15 +15,11 @@ jobs:
       - name: Run a one-line script
         run: echo "Hello, world!"
 
-      - name: Set up environment variable for PAT
-        run: echo "MY_PAT=${{ secrets.MY_PAT }}"
-
       - name: Publish Evidence Action
-        uses: cloudbees-gha-cbp/publish-evidence-item@test
-        # uses: akashsami4456/gha-action@main
+        # uses: cloudbees-gha-cbp/publish-evidence-item@test
+        uses: akashsami4456/gha-action@main
         id: go-action
         with :
-          # cloudbees-url: "https://api.saas-preprod.beescloud.com/"
-          cloudbees-url: "https://api.cloudbees.io"
-          cloudbees-pat: ${{ secrets.PROD_PAT }}
-          content: "Test Prod"
+          cloudbees-url: "https://api.saas-preprod.beescloud.com/"
+          # cloudbees-url: "https://api.cloudbees.io"
+          content: "Test Pre-Prod"
