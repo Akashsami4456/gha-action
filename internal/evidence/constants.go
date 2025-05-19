@@ -9,7 +9,6 @@ const (
 	GithubRunNumber  = "GITHUB_RUN_NUMBER"
 
 	CloudbeesApiUrl            = "CLOUDBEES_API_URL"
-	CloudbeesApiToken          = "CLOUDBEES_API_TOKEN"
 	GithubRepository           = "GITHUB_REPOSITORY"
 	GithubWorkflowRef          = "GITHUB_WORKFLOW_REF"
 	GithubServerUrl            = "GITHUB_SERVER_URL"
@@ -24,4 +23,7 @@ const (
 	GithubProvider             = "GITHUB"
 	GithubJobName              = "GITHUB_JOB"
 	GitHubRef                  = "GITHUB_REF"
+	ActionIdTokenRequestUrl    = "ACTIONS_ID_TOKEN_REQUEST_URL"
+	ActionIdTokenRequestToken  = "ACTIONS_ID_TOKEN_REQUEST_TOKEN"
+	AccessToken                = "accessToken"
 )
