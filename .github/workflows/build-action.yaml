@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - maint
+      - main
 
 jobs:
   build-and-push:
