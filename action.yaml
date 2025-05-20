@@ -4,7 +4,8 @@ description: "publishing step level evidence to CBP"
 inputs:
   cloudbees-url:
     description: 'The CloudBees platform URL.'
-    required: true
+    required: false
+    default: "https://api.cloudbees.io"
   content:
     description: 'The content to be published as evidence.'
     required: true
