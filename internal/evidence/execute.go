@@ -167,7 +167,7 @@ func sendCloudEvent(cloudEvent cloudevents.Event, config *Config) error {
 	tokenRequestObj := TokenRequest{
 		Token:    oidcToken,
 		Provider: GithubProvider,
-		Audience: config.CloudBeesApiUrl, // Optional: omit or override
+		Audience: strings.TrimSuffix(config.CloudBeesApiUrl, "/"), // Optional: omit or override
 	}
 	tokenReqJSON, err := json.Marshal(tokenRequestObj)
 	if err != nil {
@@ -252,7 +252,7 @@ func sendCloudEvent(cloudEvent cloudevents.Event, config *Config) error {
 func getOIDCToken(cloudbeesUrl string) (string, error) {
 	oidcToken := os.Getenv(ActionIdTokenRequestToken)
 	oidcBaseURL := os.Getenv(ActionIdTokenRequestUrl)
-	oidcAudience := url.QueryEscape(cloudbeesUrl)
+	oidcAudience := url.QueryEscape(strings.TrimSuffix(cloudbeesUrl, "/"))
 	oidcURL := fmt.Sprintf("%s?audience=%s", oidcBaseURL, oidcAudience)
 
 	oidcTokenReq, err := http.NewRequest("GET", oidcURL, nil)
