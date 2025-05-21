@@ -23,6 +23,6 @@ jobs:
         uses: akashsami4456/gha-action@main
         id: go-action
         with :
-          # cloudbees-url: "https://api.saas-preprod.beescloud.com/"
+          cloudbees-url: "https://api.saas-preprod.beescloud.com/"
           # cloudbees-url: "https://api.cloudbees.io"
           content: "Test Prod"
